@@ -28,7 +28,7 @@ mapL[x][y] = 2 # 방문
 stepL[x][y] = 1
 queue = deque([(x,y)])
 
-while queue:
+while queue: #O(n**2)
     x,y=queue.popleft()
     for i in range(4):
         nextX = x+dx[i]
