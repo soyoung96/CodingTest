@@ -11,7 +11,7 @@ def unionNode(rootL,a,b):
     rootB = findRoot(rootL,b)
     if(rootA != rootB):
         if(rootA<rootB):
-            rootL[rootB] = rootA
+            rootL[rootB] = rootA #조심! 맨 상위 루트를 다른 상위 루트로 바꿔주는 것임
         else:
             rootL[rootA] = rootB
         return True
