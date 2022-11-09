@@ -13,7 +13,7 @@
 # for ind,card in enumerate(cardL): #O(n) -> 잘못됌! 
 
 #     total+=card
-#     if(ind!=0):
+#     if(ind!=0):-> 잘못됌! 
 #         answer+=total
 
 # if(n==1):
@@ -31,14 +31,12 @@ for i in range(n):#O(nlogn)
     heapq.heappush(cardL,int(sys.stdin.readline()))
 
 total = 0
-if(len(cardL)==1):
-    total = cardL[0]
-else:
-    while(len(cardL)>=2):
-        first = heapq.heappop(cardL)
-        second = heapq.heappop(cardL)
-        total+=(first + second) #비교
-        heapq.heappush(cardL,first + second)
+
+while(len(cardL)>=2):
+    first = heapq.heappop(cardL)
+    second = heapq.heappop(cardL)
+    total+=(first + second) #비교
+    heapq.heappush(cardL,first + second)
 
 
 print(total)
