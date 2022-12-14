@@ -54,7 +54,7 @@ while(True):
                                 visited.add((nextX,nextY))
                                 nowvisitied.append((nextX,nextY))
                 sharePeople = visitedSum//visitedNum #소수점 버림
-                for x_,y_ in nowvisitied: #2500
+                for x_,y_ in nowvisitied: #2500 #for문 안에 같은 x,y 변수 실수 주의
                     graph2[x_][y_] = sharePeople
     # print(peoplemove)                
     if(not peoplemove):
