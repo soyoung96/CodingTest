@@ -18,7 +18,7 @@ priorQ = []
 
 def dickstra(dp,priorQ,graph,startN,endN):
     
-    heapq.heappush(priorQ,(0,startN))
+    heapq.heappush(priorQ,(0,startN)) #여기 조심하기!!
 
     while(priorQ): #O(400000log400000)
         dist,nNode = heapq.heappop(priorQ)
