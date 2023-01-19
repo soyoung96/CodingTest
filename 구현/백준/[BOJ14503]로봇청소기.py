@@ -14,10 +14,11 @@ def chkY(y):
         return False
 
 def defineD(d):
-    if(d<0):
-        return 4+d
-    else:
-        return d
+    # if(d<0):
+    #     return 4+d
+    # else:
+    #     return d
+    return (4+d)%4
 
 n,m = map(int,sys.stdin.readline().split())
 
