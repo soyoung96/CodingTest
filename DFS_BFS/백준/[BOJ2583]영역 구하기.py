@@ -1,6 +1,7 @@
 import sys
 # from pprint import pprint
-sys.setrecursionlimit(1000000)
+from collections import deque
+# sys.setrecursionlimit(1000000)
 m,n,k = map(int,sys.stdin.readline().split())
 
 graph = [[0]*n for _ in range(m)] #10000
@@ -22,17 +23,31 @@ def chkY(y):
     else:
         return False
 
-def dfs(startX,startY,graph):
-    global space
-    graph[startY][startX] = 1 #방문
-    space+=1
-    # pprint(graph)
-    for go in range(4):
-        newX,newY = startX+dx[go],startY+dy[go]
-        if(chkX(newX) and chkY(newY)):
-            if(graph[newY][newX]!=1):
-                dfs(newX,newY,graph)
+# def dfs(startX,startY,graph):
+#     global space
+#     graph[startY][startX] = 1 #방문
+#     space+=1
+#     # pprint(graph)
+#     for go in range(4):
+#         newX,newY = startX+dx[go],startY+dy[go]
+#         if(chkX(newX) and chkY(newY)):
+#             if(graph[newY][newX]!=1):
+#                 dfs(newX,newY,graph)
 
+def bfs(startX,startY,graph):
+    global space
+    q = deque([(startX,startY)])
+    graph[startY][startX] = 1 #방문
+    space+=1 
+    while(q):
+        startX,startY = q.popleft()
+        for go in range(4):
+            newX,newY = startX+dx[go],startY+dy[go]
+            if(chkX(newX) and chkY(newY)):
+                if(graph[newY][newX]!=1):
+                    graph[newY][newX] = 1 #방문
+                    space+=1 
+                    q.append((newX,newY))
 
 
 
@@ -50,7 +65,8 @@ for startX in range(n):
         if(graph[startY][startX]!=1):
             space=0
             num+=1
-            dfs(startX,startY,graph)
+            # dfs(startX,startY,graph)
+            bfs(startX,startY,graph)
             ansL.append(space)
 
 print(num)
