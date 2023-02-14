@@ -16,7 +16,7 @@ completeBoxNum = 0
 completeBoxs = [False for _ in range(m)]
 
 ans=0
-while(completeBoxNum<m): #O(200*500000)
+while(completeBoxNum<m): #O(200*10000)
     
     useCreinNum = 0
     notExistAns = False
