@@ -1,9 +1,7 @@
 import sys
 
 lp = 1
-
 n,k,d = map(int,sys.stdin.readline().split())
-
 rp = n
 
 
